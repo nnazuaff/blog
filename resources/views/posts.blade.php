@@ -24,8 +24,8 @@
                     class="absolute end-1.5 bottom-1.5 text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded text-xs px-3 py-1.5 focus:outline-none">Search</button>
             </div>
         </form>
-
-        <div class="mb-4 grid gap-8 lg:grid-cols-3 md:grid-cols-2">
+        {{ $posts->links() }}
+        <div class="mb-4 my-4 grid gap-8 lg:grid-cols-3 md:grid-cols-2">
             @forelse ($posts as $post)
                 <article
                     class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -50,7 +50,7 @@
                             </a>
                         </div>
                         <a href="/posts/{{ $post['slug'] }}"
-                            class="inline-flex items-center font-medium text-xs text-white hover:underline">
+                            class="inline-flex items-center font-medium text-xs text-black hover:underline">
                             Read more
                             <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +70,7 @@
             @endforelse
 
         </div>
-        {{ $posts->links() }}
+
     </div>
 
 </x-layout>
