@@ -1,10 +1,11 @@
 <section class=" p-3 sm:p-5 antialiased">
+    <h2 class="text-xsm font-semibold pl-4 mb-4">Post by: {{ Auth::user()->name }}</h2>
     <div class="max-w-screen-xl px-4">
         <div class="bg-white dark:bg-gray-800 relative border sm:rounded-lg overflow-hidden">
             <div class="flex flex-col md:flex-row items-center justify-start space-y-3 md:space-y-0 md:space-x-4 p-4">
                 <div class="w-full md:w-1/2">
-                    <form class="flex items-center">
-                        <label for="simple-search" class="sr-only">Search</label>
+                    <form class="flex items-center" action="" method="GET">
+                        <label for="simple-search" class="sr-only">Search Post...</label>
                         <div class="relative w-full">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400"
@@ -14,9 +15,9 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <input type="text" id="simple-search"
+                            <input type="text" id="simple-search" name="keyword"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Search" required="">
+                                placeholder="Search Post...">
                         </div>
                     </form>
                 </div>
@@ -40,7 +41,6 @@
                         <tr>
                             <th scope="col" class="px-4 py-4">#</th>
                             <th scope="col" class="px-4 py-3">Title</th>
-                            <th scope="col" class="px-4 py-3">Author</th>
                             <th scope="col" class="px-4 py-3">Category</th>
                             <th scope="col" class="px-4 py-3">Published At</th>
                             <th scope="col" class="px-4 py-3">
@@ -54,7 +54,6 @@
                                     class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ $loop->iteration }}</th>
                                 <td class="px-4 py-3">{{ $post->title }}</td>
-                                <td class="px-4 py-3">{{ $post->author->name }}</td>
                                 <td class="px-4 py-3">{{ $post->category->name }}</td>
                                 <td class="px-4 py-3">{{ $post->created_at->diffForHumans() }}</td>
                                 <td class="px-4 py-3 flex items-center justify-end">
@@ -120,8 +119,10 @@
                     </tbody>
                 </table>
             </div>
-            <div class="p-3"> {{ $posts->links() }}
-            </div>
+            @if ($posts->hasPages())
+                <div class="p-3"> {{ $posts->links() }}
+                </div>
+            @endif
         </div>
     </div>
 </section>
@@ -292,8 +293,8 @@
             <!-- Modal header -->
             <div class="flex justify-between mb-4 rounded-t sm:mb-5">
                 <div class="text-lg text-gray-900 md:text-xl dark:text-white">
-                    <h3 class="font-semibold ">Apple iMac 27”</h3>
-                    <p class="font-bold">$2999</p>
+                    <h3 class="font-semibold ">Judul</h3>
+                    <p class="font-bold">Author</p>
                 </div>
                 <div>
                     <button type="button"
@@ -312,7 +313,8 @@
             <dl>
                 <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Details</dt>
                 <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">Standard glass ,3.8GHz 8-core
-                    10th-generation Intel Core i7 processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory, Radeon
+                    10th-generation Intel Core i7 processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory,
+                    Radeon
                     Pro 5500 XT with 8GB of GDDR6 memory, 256GB SSD storage, Gigabit Ethernet, Magic Mouse 2, Magic
                     Keyboard - US.</dd>
                 <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Category</dt>
