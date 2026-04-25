@@ -4,6 +4,27 @@
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Add Post</h3>
 
     </div>
+
+    {{-- Validation error --}}
+    @if ($errors->any())
+        <div class="flex p-4 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft border border-danger-subtle"
+            role="alert">
+            <svg class="w-4 h-4 me-2 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            <span class="sr-only">Danger</span>
+            <div>
+                <span class="font-medium">Ensure that these requirements are met:</span>
+                <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    @endif
     <!-- Modal body -->
     <form action="/dashboard" method="POST">
         @csrf
@@ -11,13 +32,13 @@
             <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
             <input type="text" name="title" id="title"
                 class="border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Type post title" required="">
+                placeholder="Type post title" autofocus>
         </div>
         <div class="mb-4">
             <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
             <select name="category_id" id="category"
                 class="border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                <option selected="">Select post category</option>
+                <option selected="" value="">Select post category</option>
                 @foreach (App\Models\Category::get() as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
