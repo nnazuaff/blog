@@ -39,7 +39,7 @@ class PostDashboardController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|unique:posts|min:5|max:255',
             'category_id' => 'required',
             'body' => 'required',
 
@@ -53,7 +53,7 @@ class PostDashboardController extends Controller
             'body' => $request->body,
         ]);
 
-        return redirect('/dashboard');
+        return redirect('/dashboard')->with(['success' => 'Your post has been saved!']);
     }
 
     /**
