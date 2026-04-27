@@ -183,9 +183,7 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </td>
-                            </tr>
                         @endforeach
                     </tbody>
                 </table>
