@@ -57,6 +57,18 @@
             @endif
         </div>
 
+        {{-- Upload avatar --}}
+        <div>
+            <label class="block mb-2.5 text-sm font-medium text-gray-700" for="avatar">Upload avatar</label>
+            <input
+                class="cursor-pointer bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full shadow-xs placeholder:text-body"
+                id="avatar" type="file" name="avatar">
+        </div>
+        <div>
+            <img class="w-10 h-10 rounded-sm" src="{{ asset('avatar.webp') }}" alt="{{ $user->name }}">
+        </div>
+
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
