@@ -36,9 +36,7 @@ class ProfileUpdateRequest extends FormRequest
             ],
             'avatar' => [
                 'image',
-                'max:1000',
-
-            ],
+                'max:1000',            ],
         ];
     }
 }
