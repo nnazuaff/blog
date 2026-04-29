@@ -11,7 +11,7 @@ Route::get('/', function () {
 
 Route::get('/posts', function () {
     // Filters
-    $posts = Post::latest()->filter(request(['search', 'category', 'author']))->paginate(5)->withQueryString();
+    $posts = Post::latest('created_at')->filter(request()->only(['search', 'category', 'author']))->paginate(5)->withQueryString();
     if ($posts) {
         return view('posts', ['title' => 'Blog', 'posts' => $posts]);
     }
@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/upload', [ProfileController::class, 'upload']);
 });
 
 require __DIR__.'/auth.php';
