@@ -41,7 +41,7 @@ class PostDashboardController extends Controller
         $request->validate([
             'title' => 'required|unique:posts|min:5|max:255',
             'category_id' => 'required',
-            'body' => 'required',
+            'body' => 'required|min:20',
 
         ]);
 
@@ -81,7 +81,7 @@ class PostDashboardController extends Controller
         $request->validate([
             'title' => 'required|min:5|max:255|unique:posts,title'.$post->id,
             'category_id' => 'required',
-            'body' => 'required',
+            'body' => 'required|min:20',
 
         ]);
 
