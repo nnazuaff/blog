@@ -32,7 +32,7 @@
             @enderror
 
         </div>
-        <div class="mb-4"><label for="body"
+        <div id="editor" class="mb-4"><label for="body"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Body</label>
             <textarea name="body" id="body" rows="4"
                 class="@error('body')bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-600 focus:border-red-500 @enderror block p-2.5 w-full text-sm text-gray-900 rounded-md border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -41,7 +41,7 @@
                 <p class="mt-2.5 text-xs text-red-500"><span class="font-medium">{{ $message }}</p>
             @enderror
         </div>
-        <div class="flex gap-2">
+        <div class="my-4 flex gap-2">
             <button type="submit"
                 class="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                 Update post

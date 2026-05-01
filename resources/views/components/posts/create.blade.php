@@ -1,3 +1,6 @@
+@push('style')
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+@endpush
 <div class="max-w-4xl relative p-4 bg-white rounded-md border dark:bg-gray-800 sm:p-5">
     <!-- Modal header -->
     <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
@@ -56,9 +59,14 @@
             <textarea name="body" id="body" rows="4"
                 class="@error('body')bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-600 focus:border-red-500 @enderror block p-2.5 w-full text-sm text-gray-900 rounded-md border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 placeholder="Write post body here">{{ old('body') }}</textarea>
+            <div id="editor">
+
+            </div>
             @error('body')
                 <p class="mt-2.5 text-xs text-red-500"><span class="font-medium">{{ $message }}</p>
             @enderror
+
+
         </div>
         <div class="flex gap-2">
             <button type="submit"
@@ -78,3 +86,13 @@
         </div>
     </form>
 </div>
+@push('script')
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+    <script>
+        const quill = new Quill('#editor', {
+            theme: 'snow',
+            placeholder: 'Write post body here'
+        });
+    </script>
+@endpush
