@@ -64,7 +64,7 @@
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5">Your
                                         profile</a>
                                     <a href="/dashboard"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5">Settings</a>
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5">Dashboard</a>
 
                                     <form method="POST" action="/logout" class="w-full">
                                         @csrf
@@ -131,7 +131,7 @@
                                 class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Your
                                 profile</a>
                             <a href="/dashboard"
-                                class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Settings</a>
+                                class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Dashboard</a>
 
                             <form method="POST" action="/logout" class="w-full">
                                 @csrf

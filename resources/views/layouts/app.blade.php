@@ -18,6 +18,7 @@
     {{-- CSS Stack --}}
     @stack('style')
 
+
 </head>
 
 <body class="font-sans antialiased">
