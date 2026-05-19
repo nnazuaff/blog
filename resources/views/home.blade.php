@@ -8,7 +8,7 @@
                     Blog Modern Laravel
                 </span>
 
-                <h1 class="mt-6 text-5xl font-inter leading-tight tracking-tight lg:text-7xl">
+                <h1 class="mt-6 font-semibold text-5xl font-inter leading-tight tracking-tight lg:text-7xl">
                     Temukan Blog Menarik dan Inspiratif Setiap Hari
                 </h1>
 
@@ -49,14 +49,13 @@
                     Featured Posts
                 </p>
 
-                <h2 class="mt-3 text-4xl font-inter-bold tracking-tight">
+                <h2 class="mt-3 font-semibold text-4xl font-inter-bold tracking-tight">
                     Blog Pilihan
                 </h2>
             </div>
 
-            <a href="#" class="text-sm text-zinc-400 transition hover:text-white">
-                Lihat Semua
-            </a>
+            <a href="/posts" class="text-sm text-zinc-400 transition hover:underline">
+                Lihat Semua </a>
         </div>
 
         <div class="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
